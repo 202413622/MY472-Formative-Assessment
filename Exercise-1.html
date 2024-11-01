@@ -404,8 +404,8 @@ head(changed_data)</code></pre>
 ## 5      0.3531915
 ## 6      0.3276596</code></pre>
 <p>Adding second transformation function</p>
-<pre class="r"><code>transformation_func &lt;- function(data_file){
-   data_file &lt;- data_file %&gt;%
+<pre class="r"><code>transformation_func &lt;- function(data_file_new){
+   data_file &lt;- data_file_new %&gt;%
     mutate(hp_per_wt = hp / wt)  # adding new variable horsepower-to-weight ratio
     
   return(data_file)

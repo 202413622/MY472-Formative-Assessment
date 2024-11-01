@@ -43,8 +43,8 @@ head(changed_data)
 Adding second transformation function
 
 ```{r echo = TRUE}
-transformation_func <- function(data_file){
-   data_file <- data_file %>%
+transformation_func <- function(data_file_new){
+   data_file <- data_file_new %>%
     mutate(hp_per_wt = hp / wt)  # adding new variable horsepower-to-weight ratio
     
   return(data_file)
