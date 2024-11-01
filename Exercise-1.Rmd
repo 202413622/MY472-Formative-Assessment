@@ -1,0 +1,42 @@
+---
+title: "MY472 - Formative Assessment"
+author: "LSE Candidate Number: 202413622"
+date: "2024-10-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Exercise 1
+
+Importing necessary libraries
+
+```{r echo = TRUE}
+library(dplyr)
+```
+
+
+The first transformation function is as follows:
+
+```{r echo = TRUE}
+transformation_func <- function(data_file){
+  data_file$car_models <- rownames(data_file) #added a new variable car_variables and converted row names to it to make it tidy
+  rownames(data_file) <- NULL #removed row names
+   data_file <- data_file %>%
+    mutate(mpg_normalized = (mpg - min(mpg)) / (max(mpg) - min(mpg))) #added new column for normalized mpg values
+    
+  return(data_file)
+}
+```
+
+```{r echo = TRUE}
+data("mtcars")
+head(mtcars)
+
+changed_data <- transformation_func(mtcars) #testing the transformation function
+head(changed_data)
+```
+
