@@ -40,3 +40,24 @@ changed_data <- transformation_func(mtcars) #testing the transformation function
 head(changed_data)
 ```
 
+Adding second transformation function
+
+```{r echo = TRUE}
+transformation_func <- function(data_file){
+   data_file <- data_file %>%
+    mutate(hp_per_wt = hp / wt)  # adding new variable horsepower-to-weight ratio
+    
+  return(data_file)
+}
+
+```
+
+
+```{r echo = TRUE}
+data("mtcars")
+head(mtcars)
+
+ratio_data <- transformation_func(mtcars) #testing the transformation function
+head(ratio_data)
+
+```
